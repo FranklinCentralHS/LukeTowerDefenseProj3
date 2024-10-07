@@ -18,4 +18,3 @@ loop = false
 
 [node name="Soldier A" parent="PathFollow2D" instance=ExtResource("1_m2udg")]
 rotation = -1.63636
-scale = Vector2(1, 1)

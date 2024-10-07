@@ -24,9 +24,14 @@ func _on_gui_input(event):
 			
 			currTile = mapPath.get_cell_atlas_coords(0, tile, false)
 			if (currTile == Vector2i(4,5)):
-				get_child(1).get_node("Area").modulate = Color(0,255,0)
+				get_child(1).get_node("Area").modulate = Color(0,255,0,0.3137)
+			elif (currTile == Vector2i(1,5)):
+				get_child(1).get_node("Area").modulate = Color(0,255,0,0.3137)
+			elif (currTile == Vector2i(1,3)):
+				get_child(1).get_node("Area").modulate = Color(0,255,0,0.3137)
+			
 			else:
-				get_child(1).get_node("Area").modulate = Color(255,255,255)
+				get_child(1).get_node("Area").modulate = Color(255,255,255,0.3137)
 	elif event is InputEventMouseButton and event.button_mask == 0:
 		#Left Click Up
 		if event.global_position.x >= 1664:
@@ -35,11 +40,26 @@ func _on_gui_input(event):
 		else:
 			if get_child_count() > 1:
 				get_child(1).queue_free()
-			var path = get_tree().get_root().get_node("Main/Towers")
-			
-			path.add_child(tempTower)
-			tempTower.global_position = event.global_position
-			tempTower.get_node("Area").hide()
+			if currTile == Vector2i(4,5):
+				var path = get_tree().get_root().get_node("Main/Towers")
+				
+				path.add_child(tempTower)
+				tempTower.global_position = event.global_position
+				tempTower.get_node("Area").hide()
+				
+			elif currTile == Vector2i(1,5):
+				var path = get_tree().get_root().get_node("Main/Towers")
+				
+				path.add_child(tempTower)
+				tempTower.global_position = event.global_position
+				tempTower.get_node("Area").hide()
+				
+			elif currTile == Vector2i(1,3):
+				var path = get_tree().get_root().get_node("Main/Towers")
+				
+				path.add_child(tempTower)
+				tempTower.global_position = event.global_position
+				tempTower.get_node("Area").hide()
 	else:
 		if get_child_count() > 1:
 			get_child(1).queue_free()
