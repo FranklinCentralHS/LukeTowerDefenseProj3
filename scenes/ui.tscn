@@ -1,6 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://fm0v8foyfjco"]
+[gd_scene load_steps=4 format=3 uid="uid://fm0v8foyfjco"]
 
 [ext_resource type="PackedScene" uid="uid://dxgtib6jls3om" path="res://Towers/RedTowerPanel.tscn" id="1_3w3r1"]
+
+[sub_resource type="GDScript" id="GDScript_fcqx6"]
+script/source = "extends Label
+
+
+func _process(delta):
+	self.text = \"Health: \" + str(Game.Health)
+"
+
+[sub_resource type="GDScript" id="GDScript_tfx4p"]
+script/source = "extends Label
+
+
+
+
+func _process(delta):
+	self.text = \"Gold: \" + str(Game.Gold)
+"
 
 [node name="UI" type="CanvasLayer"]
 
@@ -22,23 +40,20 @@ theme_override_constants/v_separation = 10
 [node name="RedTowerPanel" parent="Panel/FlowContainer" instance=ExtResource("1_3w3r1")]
 layout_mode = 2
 
-[node name="RedTowerPanel2" parent="Panel/FlowContainer" instance=ExtResource("1_3w3r1")]
-layout_mode = 2
+[node name="Health" type="Label" parent="."]
+offset_left = 1664.0
+offset_top = 1152.0
+offset_right = 1920.0
+offset_bottom = 1221.0
+theme_override_font_sizes/font_size = 50
+text = "Health: "
+script = SubResource("GDScript_fcqx6")
 
-[node name="RedTowerPanel3" parent="Panel/FlowContainer" instance=ExtResource("1_3w3r1")]
-layout_mode = 2
-
-[node name="RedTowerPanel4" parent="Panel/FlowContainer" instance=ExtResource("1_3w3r1")]
-layout_mode = 2
-
-[node name="RedTowerPanel5" parent="Panel/FlowContainer" instance=ExtResource("1_3w3r1")]
-layout_mode = 2
-
-[node name="RedTowerPanel6" parent="Panel/FlowContainer" instance=ExtResource("1_3w3r1")]
-layout_mode = 2
-
-[node name="RedTowerPanel7" parent="Panel/FlowContainer" instance=ExtResource("1_3w3r1")]
-layout_mode = 2
-
-[node name="RedTowerPanel8" parent="Panel/FlowContainer" instance=ExtResource("1_3w3r1")]
-layout_mode = 2
+[node name="Gold" type="Label" parent="."]
+offset_left = 1972.0
+offset_top = 1152.0
+offset_right = 2228.0
+offset_bottom = 1221.0
+theme_override_font_sizes/font_size = 50
+text = "Gold: "
+script = SubResource("GDScript_tfx4p")
